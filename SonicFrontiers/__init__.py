@@ -64,7 +64,7 @@ class SonicFrontiersWorld(World):
             set_rule(self.multiworld.get_location((f"3-5 All Missions ({i+1})"), self.player), lambda state: state.has("3-5 Unlocked", self.player, 1))
             set_rule(self.multiworld.get_location((f"3-6 All Missions ({i+1})"), self.player), lambda state: state.has("3-6 Unlocked", self.player, 1))
             set_rule(self.multiworld.get_location((f"3-7 All Missions ({i+1})"), self.player), lambda state: state.has("3-7 Unlocked", self.player, 1) 
-                     and state.can_reach_location("Chaos Cyan Chaos Emerald", self.player))
+                     and state.can_reach_location("Chaos Cyan Emerald", self.player))
             set_rule(self.multiworld.get_location((f"4-1 All Missions ({i+1})"), self.player), lambda state: state.has("4-1 Unlocked", self.player, 1))
             set_rule(self.multiworld.get_location((f"4-2 All Missions ({i+1})"), self.player), lambda state: state.has("4-2 Unlocked", self.player, 1))
             set_rule(self.multiworld.get_location((f"4-3 All Missions ({i+1})"), self.player), lambda state: state.has("4-3 Unlocked", self.player, 1))
@@ -75,46 +75,47 @@ class SonicFrontiersWorld(World):
             set_rule(self.multiworld.get_location((f"4-8 All Missions ({i+1})"), self.player), lambda state: state.has("4-8 Unlocked", self.player, 1))
             set_rule(self.multiworld.get_location((f"4-9 All Missions ({i+1})"), self.player), lambda state: state.has("4-9 Unlocked", self.player, 1))
 
-        set_rule(self.multiworld.get_location(("Kronos Blue Chaos Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 2))
-        set_rule(self.multiworld.get_location(("Kronos Red Chaos Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 5))
-        set_rule(self.multiworld.get_location(("Kronos Green Chaos Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 5))
-        set_rule(self.multiworld.get_location(("Kronos Yellow Chaos Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 13))
-        set_rule(self.multiworld.get_location(("Kronos Cyan Chaos Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 13))
-        set_rule(self.multiworld.get_location(("Kronos White Chaos Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 20))
-        set_rule(self.multiworld.get_location(("Ares Blue Chaos Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 7))
-        set_rule(self.multiworld.get_location(("Ares Red Chaos Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 14))
-        set_rule(self.multiworld.get_location(("Ares Green Chaos Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 14))
-        set_rule(self.multiworld.get_location(("Ares Yellow Chaos Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 20))
-        set_rule(self.multiworld.get_location(("Ares Cyan Chaos Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 20))
-        set_rule(self.multiworld.get_location(("Ares White Chaos Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 25))
+        set_rule(self.multiworld.get_location(("Kronos Blue Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 2))
+        set_rule(self.multiworld.get_location(("Kronos Red Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 5))
+        set_rule(self.multiworld.get_location(("Kronos Green Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 5))
+        set_rule(self.multiworld.get_location(("Kronos Yellow Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 13))
+        set_rule(self.multiworld.get_location(("Kronos Cyan Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 13))
+        set_rule(self.multiworld.get_location(("Kronos White Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 20))
+        set_rule(self.multiworld.get_location(("Ares Blue Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 7))
+        set_rule(self.multiworld.get_location(("Ares Red Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 14))
+        set_rule(self.multiworld.get_location(("Ares Green Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 14))
+        set_rule(self.multiworld.get_location(("Ares Yellow Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 20))
+        set_rule(self.multiworld.get_location(("Ares Cyan Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 20))
+        set_rule(self.multiworld.get_location(("Ares White Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 25))
 
-        set_rule(self.multiworld.get_location(("Chaos Blue Chaos Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 7))
-        set_rule(self.multiworld.get_location(("Chaos Red Chaos Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 14))
-        set_rule(self.multiworld.get_location(("Chaos Green Chaos Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 14))
-        set_rule(self.multiworld.get_location(("Chaos Yellow Chaos Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 20))
-        set_rule(self.multiworld.get_location(("Chaos Cyan Chaos Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 20))
-        set_rule(self.multiworld.get_location(("Chaos White Chaos Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 25))
-        set_rule(self.multiworld.get_location(("Ouranos Blue Chaos Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 3))
-        set_rule(self.multiworld.get_location(("Ouranos Red Chaos Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 9))
-        set_rule(self.multiworld.get_location(("Ouranos Green Chaos Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 16))
-        set_rule(self.multiworld.get_location(("Ouranos Yellow Chaos Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 23))
-        set_rule(self.multiworld.get_location(("Ouranos Cyan Chaos Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 30))
-        set_rule(self.multiworld.get_location(("Ouranos White Chaos Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 33))
+        set_rule(self.multiworld.get_location(("Chaos Blue Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 7))
+        set_rule(self.multiworld.get_location(("Chaos Red Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 14))
+        set_rule(self.multiworld.get_location(("Chaos Green Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 14))
+        set_rule(self.multiworld.get_location(("Chaos Yellow Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 20))
+        set_rule(self.multiworld.get_location(("Chaos Cyan Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 20))
+        set_rule(self.multiworld.get_location(("Chaos White Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 25))
+        set_rule(self.multiworld.get_location(("Ouranos Blue Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 3))
+        set_rule(self.multiworld.get_location(("Ouranos Red Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 9))
+        set_rule(self.multiworld.get_location(("Ouranos Green Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 16))
+        set_rule(self.multiworld.get_location(("Ouranos Yellow Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 23))
+        set_rule(self.multiworld.get_location(("Ouranos Cyan Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 30))
+        set_rule(self.multiworld.get_location(("Ouranos White Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 33))
 
         set_rule(self.multiworld.get_entrance("Ares Entrance", self.player), 
-        lambda state: state.has("Kronos White Chaos Emerald", self.player) and state.has("Kronos Blue Chaos Emerald", self.player) and
-        state.has("Kronos Red Chaos Emerald", self.player) and state.has("Kronos Green Chaos Emerald", self.player) and state.has("Kronos Yellow Chaos Emerald", self.player) and
-        state.has("Kronos Cyan Chaos Emerald", self.player) and state.has("Kronos Memory Treasure", self.player, 9) and state.can_reach_location("Kronos White Chaos Emerald", self.player))
+        lambda state: state.has("Kronos White Emerald", self.player) and state.has("Kronos Blue Emerald", self.player) and
+        state.has("Kronos Red Emerald", self.player) and state.has("Kronos Green Emerald", self.player) and state.has("Kronos Yellow Emerald", self.player) and
+        state.has("Kronos Cyan Emerald", self.player) and state.has("Kronos Memory Treasure", self.player, 9) and state.has("Stomp Attack", self.player) 
+        and state.has("Parry", self.player))
 
         set_rule(self.multiworld.get_entrance("Chaos Entrance", self.player),
-        lambda state: state.has("Ares White Chaos Emerald", self.player) and state.has("Ares Blue Chaos Emerald", self.player) and
-        state.has("Ares Red Chaos Emerald", self.player) and state.has("Ares Green Chaos Emerald", self.player) and state.has("Ares Yellow Chaos Emerald", self.player) and
-        state.has("Ares Cyan Chaos Emerald", self.player) and state.has("Ares Memory Treasure", self.player, 32) and state.can_reach_location("Ares White Chaos Emerald", self.player))
+        lambda state: state.has("Ares White Emerald", self.player) and state.has("Ares Blue Emerald", self.player) and
+        state.has("Ares Red Emerald", self.player) and state.has("Ares Green Emerald", self.player) and state.has("Ares Yellow Emerald", self.player) and
+        state.has("Ares Cyan Emerald", self.player) and state.has("Ares Memory Treasure", self.player, 32))
     
         set_rule(self.multiworld.get_entrance("Ouranos Entrance", self.player), 
-        lambda state: state.has("Chaos White Chaos Emerald", self.player) and state.has("Chaos Blue Chaos Emerald", self.player) and
-        state.has("Chaos Red Chaos Emerald", self.player) and state.has("Chaos Green Chaos Emerald", self.player) and state.has("Chaos Yellow Chaos Emerald", self.player) and
-        state.has("Chaos Cyan Chaos Emerald", self.player) and state.has("Chaos Memory Treasure", self.player, 20) and state.can_reach_location("Chaos White Chaos Emerald", self.player)) 
+        lambda state: state.has("Chaos White Emerald", self.player) and state.has("Chaos Blue Emerald", self.player) and
+        state.has("Chaos Red Emerald", self.player) and state.has("Chaos Green Emerald", self.player) and state.has("Chaos Yellow Emerald", self.player) and
+        state.has("Chaos Cyan Emerald", self.player) and state.has("Chaos Memory Treasure", self.player, 20)) 
 
     def create_items(self) -> None:
         for name, quantity in fixed_amount.items():
@@ -133,5 +134,11 @@ class SonicFrontiersWorld(World):
     def fill_slot_data(self) -> Dict[str, Any]:
         return {
             "death_link": self.options.death_link.value,
-            "goal": self.options.goal.value
+            "goal": self.options.goal.value,
+            "cyberspace_stages": self.options.cyberspace_stages.value,
+            "memory_token_sanity": self.options.memory_token_sanity.value,
+            "memory_token_bundle": self.options.memory_token_bundle.value,
+            "cyberspace_times": self.options.cyberspace_times.value,
+            "music_notes": self.options.music_notes.value,
+            "challenge_kocos": self.options.challenge_kocos.value,
         }

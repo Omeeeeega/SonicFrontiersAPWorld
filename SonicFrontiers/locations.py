@@ -65,36 +65,36 @@ def create_locations():
         "Grand Slam"
     ]
     kronosEmeralds = [
-        "Kronos Blue Chaos Emerald", 
-        "Kronos Red Chaos Emerald",
-        "Kronos Green Chaos Emerald",
-        "Kronos Yellow Chaos Emerald",
-        "Kronos Cyan Chaos Emerald",
-        "Kronos White Chaos Emerald"
+        "Kronos Blue Emerald", 
+        "Kronos Red Emerald",
+        "Kronos Green Emerald",
+        "Kronos Yellow Emerald",
+        "Kronos Cyan Emerald",
+        "Kronos White Emerald"
     ]
     aresEmeralds = [
-        "Ares Blue Chaos Emerald", 
-        "Ares Red Chaos Emerald",
-        "Ares Green Chaos Emerald",
-        "Ares Yellow Chaos Emerald",
-        "Ares Cyan Chaos Emerald",
-        "Ares White Chaos Emerald"
+        "Ares Blue Emerald", 
+        "Ares Red Emerald",
+        "Ares Green Emerald",
+        "Ares Yellow Emerald",
+        "Ares Cyan Emerald",
+        "Ares White Emerald"
     ]
     chaosEmeralds = [
-        "Chaos Blue Chaos Emerald", 
-        "Chaos Red Chaos Emerald",
-        "Chaos Green Chaos Emerald",
-        "Chaos Yellow Chaos Emerald",
-        "Chaos Cyan Chaos Emerald",
-        "Chaos White Chaos Emerald"
+        "Chaos Blue Emerald", 
+        "Chaos Red Emerald",
+        "Chaos Green Emerald",
+        "Chaos Yellow Emerald",
+        "Chaos Cyan Emerald",
+        "Chaos White Emerald"
     ]
     ouranosEmeralds = [
-        "Ouranos Blue Chaos Emerald", 
-        "Ouranos Red Chaos Emerald",
-        "Ouranos Green Chaos Emerald",
-        "Ouranos Yellow Chaos Emerald",
-        "Ouranos Cyan Chaos Emerald",
-        "Ouranos White Chaos Emerald"
+        "Ouranos Blue Emerald", 
+        "Ouranos Red Emerald",
+        "Ouranos Green Emerald",
+        "Ouranos Yellow Emerald",
+        "Ouranos Cyan Emerald",
+        "Ouranos White Emerald"
     ]
     sonicItems = [
         "Skill Points (200)",
@@ -141,6 +141,10 @@ def create_locations():
             kronosRegion[f"Map Challenge M-0{mapCounter}"] = AdvData(kronosOff+counter+mapChallengeOffset)
             counter += 1
             mapCounter += 1
+    for i in range(8):
+        kronosRegion[f"Challenge Koco {i}"] = AdvData(kronosOff+i+newKocoOffset)
+    for i in range(13):
+        kronosRegion[f"Music Note {i}"] = AdvData(kronosOff+i+musicOffset)
 
     ##
     ## Ares
@@ -169,6 +173,10 @@ def create_locations():
         aresRegion[f"Map Challenge M-0{mapCounter}"] = AdvData(aresOff+mapChallengeOffset+counter)
         counter += 1
         mapCounter += 1
+    for i in range(8):
+        aresRegion[f"Challenge Koco {i+8}"] = AdvData(aresOff+i+newKocoOffset)
+    for i in range(13):
+        aresRegion[f"Music Note {i+13}"] = AdvData(aresOff+i+musicOffset)
 
     ##
     ## Chaos
@@ -200,6 +208,10 @@ def create_locations():
         mapCounter += 1
     counter = 0
 
+    for i in range(8):
+        chaosRegion[f"Challenge Koco {i+16}"] = AdvData(chaosOff+i+newKocoOffset)
+    for i in range(13):
+        chaosRegion[f"Music Note {i+26}"] = AdvData(chaosOff+i+musicOffset)
     ##
     ## Ouranos
     ##
@@ -249,6 +261,11 @@ def create_locations():
         for i in range(7):
             ouranosRegion[f"{stage} All Missions ({i+1})"] = AdvData(cyberspaceOffset+ counter)
             counter += 1
+    
+    for i in range(8):
+        ouranosRegion[f"Challenge Koco {i+24}"] = AdvData(ouranosOff+i+newKocoOffset)
+    for i in range(13):
+        ouranosRegion[f"Music Note {i+39}"] = AdvData(ouranosOff+i+musicOffset)
 
 
 
@@ -267,10 +284,13 @@ cyberspaceOffset: int = 50000
 
 tokenDigOffset: int = 500
 emeraldOffset: int = 1000
+musicOffset: int = 1500
 gearOffset: int = 2000
+newKocoOffset: int = 2500
 keyOffset: int = 3000
+purpleCoinOffset: int = 4000
 mapChallengeOffset: int = 5000
-
+kocoOffset: int = 6000
 
 
 create_locations()
