@@ -110,7 +110,7 @@ def create_locations():
     #10000
     counter = 0
     for i in range(91):
-        kronosRegion[f"Kronos Memory Token {counter+1}"] = AdvData(kronosOff + counter)
+        kronosMemoryTokenSet[f"Kronos Memory Token {counter+1}"] = AdvData(kronosOff + counter)
         counter += 1
     #10091
     counter = 0
@@ -142,9 +142,13 @@ def create_locations():
             counter += 1
             mapCounter += 1
     for i in range(8):
-        kronosRegion[f"Challenge Koco {i}"] = AdvData(kronosOff+i+newKocoOffset)
+        kronosNewKocoSet[f"Challenge Koco {i+1}"] = AdvData(kronosOff+i+newKocoOffset)
     for i in range(13):
-        kronosRegion[f"Music Note {i}"] = AdvData(kronosOff+i+musicOffset)
+        kronosMusicSet[f"Music Note {i+1}"] = AdvData(kronosOff+i+musicOffset)
+    for i in range(65):
+        kronosPurpleSet[f"Kronos Purple Coin {i+1}"] = AdvData(kronosOff + i + purpleCoinOffset)
+    for i in range(274):
+        kronosKocoSet[f"Kronos Koco {i+1}"] = AdvData(kronosOff + i + kocoOffset)
 
     ##
     ## Ares
@@ -152,10 +156,10 @@ def create_locations():
     counter = 0
 
     for i in range(285):
-        aresRegion[f"Ares Memory Token {i+1}"] = AdvData(aresOff + counter)
+        aresMemoryTokenSet[f"Ares Memory Token {i+1}"] = AdvData(aresOff + counter)
         counter += 1
     for i in range(26):
-            aresRegion[f"Ares Memory Treasure {i}"] = AdvData(aresOff + tokenDigOffset + i)
+            aresRegion[f"Ares Memory Treasure {i+1}"] = AdvData(aresOff + tokenDigOffset + i)
     counter = 0
     for i in range(11):
         aresRegion[f"Ares Portal Gear {i+1}"] = AdvData(aresOff + gearOffset+counter)
@@ -174,51 +178,51 @@ def create_locations():
         counter += 1
         mapCounter += 1
     for i in range(8):
-        aresRegion[f"Challenge Koco {i+8}"] = AdvData(aresOff+i+newKocoOffset)
+        aresNewKocoSet[f"Challenge Koco {i+8}"] = AdvData(aresOff+i+newKocoOffset)
     for i in range(13):
-        aresRegion[f"Music Note {i+13}"] = AdvData(aresOff+i+musicOffset)
+        aresMusicSet[f"Music Note {i+13}"] = AdvData(aresOff+i+musicOffset)
+    for i in range(148):
+        aresPurpleSet[f"Ares Purple Coin {i+1}"] = AdvData(aresOff + i + purpleCoinOffset)
+    for i in range(360):
+        aresKocoSet[f"Ares Koco {i+1}"] = AdvData(aresOff + i + kocoOffset)
 
     ##
     ## Chaos
     ##
 
-    counter = 0
-
     for i in range(252):
-        chaosRegion[f"Chaos Memory Token {counter+1}"] = AdvData(chaosOff + counter)
-        counter += 1
+        chaosMemoryTokenSet[f"Chaos Memory Token {counter+1}"] = AdvData(chaosOff + i)
     for i in range(20):
         chaosRegion[f"Chaos Memory Treasure {i+1}"] = AdvData(chaosOff + tokenDigOffset+i)
     counter = 0
     for emerald in chaosEmeralds:
         chaosRegion[f"{emerald}"] = AdvData(chaosOff+emeraldOffset+counter)
         counter += 1
-    counter = 0
     for i in range(8):
-        chaosRegion[f"Chaos Vault Key {1+i}"] = AdvData(chaosOff+keyOffset+counter)
-        counter += 1
-    counter = 0
+        chaosRegion[f"Chaos Vault Key {1+i}"] = AdvData(chaosOff+keyOffset+i)
     for i in range(13):
-        chaosRegion[f"Chaos Portal Gear {i+1}"] = AdvData(chaosOff +gearOffset+ counter)
-        counter += 1
-    counter = 0
+        chaosRegion[f"Chaos Portal Gear {i+1}"] = AdvData(chaosOff +gearOffset+ i)
     for i in range(24):
-        chaosRegion[f"Map Challenge M-0{mapCounter}"] = AdvData(chaosOff+mapChallengeOffset+counter)
-        counter += 1
+        chaosRegion[f"Map Challenge M-0{mapCounter}"] = AdvData(chaosOff+mapChallengeOffset+i)
         mapCounter += 1
     counter = 0
 
     for i in range(8):
-        chaosRegion[f"Challenge Koco {i+16}"] = AdvData(chaosOff+i+newKocoOffset)
+        chaosNewKocoSet[f"Challenge Koco {i+16}"] = AdvData(chaosOff+i+newKocoOffset)
     for i in range(13):
-        chaosRegion[f"Music Note {i+26}"] = AdvData(chaosOff+i+musicOffset)
+        chaosMusicSet[f"Music Note {i+26}"] = AdvData(chaosOff+i+musicOffset)
+
+    for i in range(188):
+        chaosPurpleSet[f"Chaos Purple Coin {i+1}"] = AdvData(chaosOff+purpleCoinOffset+i)
+    for i in range(356):
+        chaosKocoSet[f"Chaos Koco {i+1}"] = AdvData(chaosOff+kocoOffset+i)
     ##
     ## Ouranos
     ##
     counter = 0
 
     for i in range(200):
-        ouranosRegion[f"Ouranos Memory Token {counter+1}"] = AdvData(ouranosOff + counter)
+        ouranosMemoryTokenSet[f"Ouranos Memory Token {counter+1}"] = AdvData(ouranosOff + counter)
         counter += 1
     for i in range(16):
         ouranosRegion[f"Ouranos Memory Treasure {i+1}"] = AdvData(ouranosOff + tokenDigOffset+i)
@@ -263,9 +267,14 @@ def create_locations():
             counter += 1
     
     for i in range(8):
-        ouranosRegion[f"Challenge Koco {i+24}"] = AdvData(ouranosOff+i+newKocoOffset)
+        ouranosNewKocoSet[f"Challenge Koco {i+24}"] = AdvData(ouranosOff+i+newKocoOffset)
     for i in range(13):
-        ouranosRegion[f"Music Note {i+39}"] = AdvData(ouranosOff+i+musicOffset)
+        ouranosMusicSet[f"Music Note {i+39}"] = AdvData(ouranosOff+i+musicOffset)
+    for i in range(317):
+        ouranosPurpleSet[f"Ouranos Purple Coin {i+1}"] = AdvData(ouranosOff+purpleCoinOffset+i)
+    for i in range(358):
+        ouranosKocoSet[f"Ouranos Koco {i+1}"] = AdvData(ouranosOff+kocoOffset+i)
+
 
 
 
@@ -275,6 +284,31 @@ aresRegion = {}
 chaosRegion = {}
 ouranosRegion = {}
 victoryRegion = {}
+
+kronosMemoryTokenSet = {}
+aresMemoryTokenSet = {}
+chaosMemoryTokenSet = {}
+ouranosMemoryTokenSet = {}
+
+kronosPurpleSet = {}
+aresPurpleSet = {}
+chaosPurpleSet = {}
+ouranosPurpleSet = {}
+
+kronosKocoSet = {}
+aresKocoSet = {}
+chaosKocoSet = {}
+ouranosKocoSet = {}
+
+kronosNewKocoSet = {}
+aresNewKocoSet = {}
+chaosNewKocoSet = {}
+ouranosNewKocoSet = {}
+
+kronosMusicSet = {}
+aresMusicSet = {}
+chaosMusicSet = {}
+ouranosMusicSet = {}
 
 kronosOff: int = 10000
 aresOff: int = 20000
@@ -288,9 +322,10 @@ musicOffset: int = 1500
 gearOffset: int = 2000
 newKocoOffset: int = 2500
 keyOffset: int = 3000
-purpleCoinOffset: int = 4000
+purpleCoinOffset: int = 4000 #10000 + i + 4000
 mapChallengeOffset: int = 5000
 kocoOffset: int = 6000
+ringOffset: int = 100000
 
 
 create_locations()

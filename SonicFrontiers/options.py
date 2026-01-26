@@ -5,12 +5,11 @@ from Options import Toggle, DefaultOnToggle, DeathLink, Range, Choice, PerGameCo
 class Goal(Choice):
     """
     Which Titan to defeat in order to complete the randomizer
+
+    Note: Only Giganto/Kronos Island for this release
     """
     display_name = "Goal"
-    option_defeat_supreme = 0
-    option_defeat_knight = 1
-    option_defeat_wyvern = 2
-    option_defeat_giganto = 3
+    option_defeat_giganto = 0
     default = 0
 class MemoryTokenSanity(Toggle):
     """
@@ -18,47 +17,52 @@ class MemoryTokenSanity(Toggle):
     """
     display_name = "Memory Token Sanity"
     default = 0
-class MemoryTokenBundles(Toggle):
-    """
-    Set whether Memory Tokens should come as individual items or bundles of 8. Default is Bundles
-    """
-    display_name = "Memory Token Bundle"
-    default = 0
+class MapChallenges(DefaultOnToggle):
+    display_name = "Map Challenge Sanity"
 class HarderCyberspaceTimes(Toggle):
+    """
+    This makes all Cyberspace stages have a harder S-Rank requirement. 
+
+    Note: This is meant for speedrunners, do not enable this unless you're up for a challenge.
+    """
     display_name = "Harder Cyberspace Challenge Times"
     default = 0
+    
 class MusicNotes(Toggle):
-    display_name = "Harder Cyberspace Challenge Times"
+    """
+    Set whether Music Notes should be locations
+    """
+    display_name = "Music Notes"
     default = 0
 class ChallengeKocos(Toggle):
-    display_name = "Harder Cyberspace Challenge Times"
+    """
+    Set whether Challenge Kocos should be locations
+    """
+    display_name = "Challenge Kocos"
     default = 0
 class CyberspaceStages(Toggle):
-    display_name = "Harder Cyberspace Challenge Times"
+    display_name = "Cyberspace Stages Missions"
     default = 0
-class CyberspaceStages(Toggle):
-    display_name = "Harder Cyberspace Challenge Times"
+class PurpleCoinSanity(Toggle):
+    """
+    Set whether All Purple Coins should be locations
+    """
+    display_name = "Purple Coin Sanity"
     default = 0
-class ExcludedLocations(ExcludeLocations):
-    testset = set()
-    for i in range(91):
-        testset.add(f"Kronos Memory Token {i+1}")
-    for i in range(285):
-        testset.add(f"Ares Memory Token {i+1}")
-    for i in range(252):
-        testset.add(f"Chaos Memory Token {i+1}")
-    for i in range(200):
-        testset.add(f"Ouranos Memory Token {i+1}")
-    default = testset
+class KocoSanity(Toggle):
+    """
+    Set whether All Kocos should be locations
+    """
+    display_name = "Koco Sanity"
+    default = 0
 
 @dataclass
 class SonicFrontiersOptions(PerGameCommonOptions):
     goal: Goal
     death_link: DeathLink
-    cyberspace_stages: CyberspaceStages
-    memory_token_bundle: MemoryTokenBundles
     memory_token_sanity: MemoryTokenSanity
     cyberspace_times: HarderCyberspaceTimes
     music_notes: MusicNotes
     challenge_kocos: ChallengeKocos
-    exclude_locations: ExcludedLocations
+    purple_coin_sanity: PurpleCoinSanity
+    koco_sanity: KocoSanity
