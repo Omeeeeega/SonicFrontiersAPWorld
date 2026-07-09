@@ -4,7 +4,7 @@ from BaseClasses import MultiWorld, Region, Item
 from worlds.AutoWorld import World
 from Utils import visualize_regions
 from worlds.generic.Rules import set_rule
-from .items import (SonicFrontiersItem, SonicFrontiersItemData, item_list, kronos_amount, ares_amount, chaos_amount, ouranos_amount, fillers)
+from .items import (SonicFrontiersItem, SonicFrontiersItemData, item_list, kronos_amount, ares_amount, chaos_amount, ouranos_amount, fillers, traps)
 from .locations import (kronosRegion, SonicFrontiersAdvancement, aresRegion, chaosRegion, ouranosRegion, kronosMemoryTokenSet, 
                         aresMemoryTokenSet, chaosMemoryTokenSet, ouranosMemoryTokenSet, kronosPurpleSet, kronosKocoSet, aresKocoSet, 
                         aresPurpleSet, chaosKocoSet, chaosPurpleSet, ouranosKocoSet, ouranosPurpleSet, kronosNewKocoSet,
@@ -93,6 +93,16 @@ class SonicFrontiersWorld(World):
             self.multiworld.regions += [ouranos_region]
             chaos_region.add_exits({"Ouranos": "Ouranos Entrance"})
 
+        if(self.options.goal == 0):
+            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Defeat Giganto", self.player)
+        if(self.options.goal == 1):
+            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Defeat Wyvern", self.player)
+        if(self.options.goal == 2):
+            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Defeat Knight", self.player)
+        if(self.options.goal == 3):
+            self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Defeat Supreme", self.player)
+            
+
 
 
 
@@ -135,11 +145,15 @@ class SonicFrontiersWorld(World):
 
         set_rule(self.multiworld.get_location(("Kronos Blue Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 2))
         set_rule(self.multiworld.get_location(("Kronos Red Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 5))
+
         set_rule(self.multiworld.get_location(("Kronos Green Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 5) 
-                 and state.has("Kronos Memory Treasure", self.player, 3) and state.has("Progressive Chaos Emerald", self.player, 2))
+                 and state.has("Kronos Memory Treasure", self.player, 4) and state.has("Progressive Chaos Emerald", self.player, 2))
+        
         set_rule(self.multiworld.get_location(("Kronos Yellow Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 13))
+
         set_rule(self.multiworld.get_location(("Kronos Cyan Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 13) 
-                 and state.has("Kronos Memory Treasure", self.player, 6) and state.has("Progressive Chaos Emerald", self.player, 4))
+                 and state.has("Kronos Memory Treasure", self.player, 7) and state.has("Progressive Chaos Emerald", self.player, 4))
+        
         set_rule(self.multiworld.get_location(("Kronos White Emerald"), self.player), lambda state: state.has("Kronos Vault Key", self.player, 20))
         if(self.options.goal > 0):
             set_rule(self.multiworld.get_location(("Ares Blue Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 7))
@@ -147,7 +161,7 @@ class SonicFrontiersWorld(World):
             set_rule(self.multiworld.get_location(("Ares Green Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 14) and state.has("Progressive Chaos Emerald", self.player, 8))
             set_rule(self.multiworld.get_location(("Ares Yellow Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 20))
             set_rule(self.multiworld.get_location(("Ares Cyan Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 20) and state.has("Progressive Chaos Emerald", self.player, 10))
-            set_rule(self.multiworld.get_location(("Ares White Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 25))
+            set_rule(self.multiworld.get_location(("Ares White Emerald"), self.player), lambda state: state.has("Ares Vault Key", self.player, 24))
 
         if(self.options.goal > 1):
             set_rule(self.multiworld.get_location(("Chaos Blue Emerald"), self.player), lambda state: state.has("Chaos Vault Key", self.player, 7))
@@ -163,16 +177,32 @@ class SonicFrontiersWorld(World):
             set_rule(self.multiworld.get_location(("Ouranos Yellow Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 23))
             set_rule(self.multiworld.get_location(("Ouranos Cyan Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 30))
             set_rule(self.multiworld.get_location(("Ouranos White Emerald"), self.player), lambda state: state.has("Ouranos Vault Key", self.player, 33))
+        if(self.options.goal > 0):
+            set_rule(self.multiworld.get_entrance("Ares Entrance", self.player), lambda state: state.has("Progressive Chaos Emerald", self.player, 6) 
+                    and state.has("Kronos Memory Treasure", self.player, 9) and state.has("Kronos Vault Key", self.player, 20)
+                    and state.has("Stomp Attack", self.player) and state.has("Parry", self.player))
+
+        if(self.options.goal > 1):
+            set_rule(self.multiworld.get_entrance("Chaos Entrance", self.player),
+            lambda state: state.has("Progressive Chaos Emerald", self.player, 12) and state.has("Ares Memory Treasure", self.player, 32) and state.has("Ares Vault Key", self.player, 24))
+
+        if(self.options.goal > 2):
+            set_rule(self.multiworld.get_entrance("Ouranos Entrance", self.player), 
+            lambda state: state.has("Progressive Chaos Emerald", self.player, 18) and state.has("Chaos Memory Treasure", self.player, 20) and state.has("Chaos Vault Key", self.player, 25)) 
         
-        set_rule(self.multiworld.get_entrance("Ares Entrance", self.player), lambda state: state.has("Progressive Chaos Emerald", self.player, 6) 
-                 and state.has("Kronos Memory Treasure", self.player, 9) and state.has("Stomp Attack", self.player) 
-                 and state.has("Parry", self.player))
-
-        set_rule(self.multiworld.get_entrance("Chaos Entrance", self.player),
-        lambda state: state.has("Progressive Chaos Emerald", self.player, 12) and state.has("Ares Memory Treasure", self.player, 32))
-
-        set_rule(self.multiworld.get_entrance("Ouranos Entrance", self.player), 
-        lambda state: state.has("Progressive Chaos Emerald", self.player, 18) and state.has("Chaos Memory Treasure", self.player, 20)) 
+        if(self.options.goal == 0):
+            set_rule(self.multiworld.get_location("Defeat Giganto", self.player), lambda state: state.has("Progressive Chaos Emerald", self.player, 6) 
+                    and state.has("Kronos Memory Treasure", self.player, 9) and state.has("Kronos Vault Key", self.player, 20)
+                    and state.has("Stomp Attack", self.player) and state.has("Parry", self.player))
+        if(self.options.goal == 1):
+            set_rule(self.multiworld.get_location("Defeat Wyvern", self.player), lambda state: state.has("Progressive Chaos Emerald", self.player, 12) 
+                     and state.has("Ares Memory Treasure", self.player, 32) and state.has("Ares Vault Key", self.player, 24))
+        if(self.options.goal == 2):
+            set_rule(self.multiworld.get_location("Defeat Knight", self.player), 
+            lambda state: state.has("Progressive Chaos Emerald", self.player, 18) and state.has("Chaos Memory Treasure", self.player, 20) and state.has("Chaos Vault Key", self.player, 25))
+        if(self.options.goal == 3):
+            set_rule(self.multiworld.get_location("Defeat Supreme", self.player),
+            lambda state: state.has("Progressive Chaos Emerald", self.player, 24) and state.has("Ouranos Memory Treasure", self.player, 24) and state.has("Ouranos Vault Key", self.player, 33))
 
     def create_items(self) -> None:
         numItems = 0
@@ -199,11 +229,27 @@ class SonicFrontiersWorld(World):
                     item = self.create_item(name)
                     self.multiworld.itempool.append(item)
                     numItems += 1
-        filler = len(self.multiworld.get_locations(self.player)) - len(self.multiworld.get_items())
-        for _ in range(filler):
-            name = self.random.choices(list(fillers.keys()), weights = list(fillers.values()))[0]
-            item = self.create_item(name)
-            self.multiworld.itempool.append(item)
+        filler = len(self.multiworld.get_locations(self.player)) - numItems
+        if self.options.traps_enabled:
+            fillerWeights = list(fillers.values())
+            fillerWeights.append(self.options.water_trap)
+            fillerWeights.append(self.options.ring_trap)
+            fillerWeights.append(self.options.autorun_trap)
+            fillerWeights.append(self.options.fire_trap)
+            itemsList = list(fillers.keys())
+            itemsList.append("Water Trap")
+            itemsList.append("Ring Trap")
+            itemsList.append("Auto Run Trap")
+            itemsList.append("Fire Trap")
+            for _ in range(filler):
+                name = self.random.choices(itemsList, fillerWeights)[0]
+                item = self.create_item(name)
+                self.multiworld.itempool.append(item)
+        else:
+            for _ in range(filler):
+                name = self.random.choices(list(fillers.keys()), weights = list(fillers.values()))[0]
+                item = self.create_item(name)
+                self.multiworld.itempool.append(item)
     def create_item(self, name: str) -> Item:
         item_data = item_list[name]
         item = SonicFrontiersItem(name, item_data.item_class, item_data.id, self.player)

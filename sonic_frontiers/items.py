@@ -72,10 +72,16 @@ item_list = {
     "4-7 Unlocked": SonicFrontiersItemData(offset + 83,ItemClassification.progression),
     "4-8 Unlocked": SonicFrontiersItemData(offset + 84,ItemClassification.progression),
     "4-9 Unlocked": SonicFrontiersItemData(offset + 85,ItemClassification.progression),
+    "Victory": SonicFrontiersItemData(offset + 86,ItemClassification.progression),
+
+    "Water Trap": SonicFrontiersItemData(offset + 200,ItemClassification.trap),
+    "Ring Trap": SonicFrontiersItemData(offset + 201,ItemClassification.trap),
+    "Auto Run Trap": SonicFrontiersItemData(offset + 202,ItemClassification.trap),
+    "Fire Trap": SonicFrontiersItemData(offset + 203,ItemClassification.trap)
 }
 kronos_amount = {
-    "Kronos Memory Treasure": 9,
-    "Kronos Vault Key": 5,
+    "Kronos Memory Treasure": 21,
+    "Kronos Vault Key": 54,
     "Progressive Chaos Emerald": 6,
     "1-2 Unlocked" : 1,
     "1-3 Unlocked" : 1,
@@ -98,8 +104,8 @@ kronos_amount = {
     "Grand Slam": 1,
 }
 ares_amount = {
-    "Ares Memory Treasure": 32,
-    "Ares Vault Key": 7,
+    "Ares Memory Treasure": 62,
+    "Ares Vault Key": 56,
     "Progressive Chaos Emerald": 6,
     "2-1 Unlocked" : 1,
     "2-2 Unlocked" : 1,
@@ -110,8 +116,8 @@ ares_amount = {
     "2-7 Unlocked" : 1,
 }
 chaos_amount = {
-    "Chaos Memory Treasure": 20,
-    "Chaos Vault Key": 8,
+    "Chaos Memory Treasure": 52,
+    "Chaos Vault Key": 57,
     "Progressive Chaos Emerald": 6,
     "3-1 Unlocked" : 1,
     "3-2 Unlocked" : 1,
@@ -133,8 +139,8 @@ ouranos_amount = {
     "4-7 Unlocked" : 1,
     "4-8 Unlocked" : 1,
     "4-9 Unlocked" : 1,
-    "Ouranos Memory Treasure": 26,
-    "Ouranos Vault Key": 8,
+    "Ouranos Memory Treasure": 41,
+    "Ouranos Vault Key": 71,
     "Progressive Chaos Emerald": 6,
 }
 fillers = {
@@ -142,15 +148,14 @@ fillers = {
     "Blue Power Seed": 15,
     "Nothing!": 10,
     "Kronos Portal Gear": 5,
-    "Kronos Vault Key": 5,
     "Ares Portal Gear": 4,
-    "Ares Vault Key": 4,
-    "Chaos Vault Key": 3,
     "Chaos Portal Gear": 3,
     "Ouranos Portal Gear": 2,
-    "Ouranos Vault Key": 2,
 }
-#
-#traps = {
-#    "Water",
-#    "Timescale";
+
+traps = {
+    "Water Trap": 2,
+    "Ring Trap": 2,
+    "Auto Run Trap": 2,
+    "Fire Trap": 2
+}

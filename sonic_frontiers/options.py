@@ -10,6 +10,9 @@ class Goal(Choice):
     """
     display_name = "Goal"
     option_defeat_giganto = 0
+    #option_defeat_wyvern = 1
+    #option_defeat_knight = 2
+    #option_defeat_supreme = 3
     default = 0
 class MemoryTokenSanity(Toggle):
     """
@@ -56,6 +59,48 @@ class KocoSanity(Toggle):
     display_name = "Koco Sanity"
     default = 0
 
+class TrapsEnabled(Toggle):
+    """
+    Set whether Traps are enabled
+    """
+    display_name = "Enable Traps"
+    default = 0
+class BaseTrapWeight(Choice):
+    """
+    Base Class for Trap Weights
+    """
+    option_none = 0
+    option_low = 1
+    option_medium = 2
+    option_high = 4
+    default = 2
+class TrapsEnabled(Toggle):
+    """
+    Set whether Traps are enabled
+    """
+    display_name = "Enable Traps"
+    default = 0
+class WaterTrap(BaseTrapWeight):
+    """
+    Likelihood of a receiving a trap which causes Water Physics
+    """
+    display_name = "Water Trap"
+class RingTrap(BaseTrapWeight):
+    """
+    Likelihood of a receiving a trap which causes Sonic to lose rings
+    """
+    display_name = "Ring Trap"
+class AutorunTrap(BaseTrapWeight):
+    """
+    Likelihood of a receiving a trap which causes Sonic to automatically run
+    """
+    display_name = "AutoRun Trap"
+class FireTrap(BaseTrapWeight):
+    """
+    Likelihood of a receiving a trap which causes Sonic to catch Fire
+    """
+    display_name = "Fire Trap"
+
 @dataclass
 class SonicFrontiersOptions(PerGameCommonOptions):
     goal: Goal
@@ -66,3 +111,8 @@ class SonicFrontiersOptions(PerGameCommonOptions):
     challenge_kocos: ChallengeKocos
     purple_coin_sanity: PurpleCoinSanity
     koco_sanity: KocoSanity
+    traps_enabled: TrapsEnabled
+    water_trap: WaterTrap
+    ring_trap: RingTrap
+    autorun_trap: AutorunTrap
+    fire_trap: FireTrap
