@@ -6,11 +6,11 @@ class Goal(Choice):
     """
     Which Titan to defeat in order to complete the randomizer
 
-    Note: Only Giganto/Kronos Island for this release
+    Note: Only Kronos and Ares Island for this release
     """
     display_name = "Goal"
     option_defeat_giganto = 0
-    #option_defeat_wyvern = 1
+    option_defeat_wyvern = 1
     #option_defeat_knight = 2
     #option_defeat_supreme = 3
     default = 0
